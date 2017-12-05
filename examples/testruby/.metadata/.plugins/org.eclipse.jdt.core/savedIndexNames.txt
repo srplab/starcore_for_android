@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+D:\Work\starcore\core\android\examples\testruby\.metadata\.plugins\org.eclipse.jdt.core
+3388117341.index
+4009845141.index
+2040099811.index
+1510126185.index
