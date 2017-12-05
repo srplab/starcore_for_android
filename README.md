@@ -1,5 +1,4 @@
-# Common Language Extension (CLE)
-## 
+# Common Language Extension (CLE) 
 
 Portability is an issue we must consider when developing applications. The most portable language is ansi c. However, due to the lack of functional libraries, applications are not easy to write and need to take a long time to market. An alternative is to use a scripting language, such as python, ruby, or lua. With the help of CLE middleware, these scripting languages can run on most platforms such as windows, windows 10, ios, android, linux.
 
