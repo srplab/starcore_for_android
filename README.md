@@ -17,7 +17,7 @@ We recommend that developers write primary logic in a scripting language, and GU
 
 ## starcore_for_android v2.6.0
 
-- c/c++, lua, python2.7.15, 3.4.5, 3.5.4, 3.6.5, java, ruby225, 235,245,251
+- c/c++, lua, python2.7.15, 3.4.5, 3.5.4, 3.6.5, java, ruby225, 235,244,251
 - lua 5.3.4
 - support delphi
 - support go lang ->
