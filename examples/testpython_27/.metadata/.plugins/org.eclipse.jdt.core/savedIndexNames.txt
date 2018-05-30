@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+D:\Work\starcore\core\android\examples\testpython_27\.metadata\.plugins\org.eclipse.jdt.core
+4144919853.index
+1277781331.index
+3268117942.index
+2989122441.index

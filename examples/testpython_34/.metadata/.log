@@ -1,0 +1,35 @@
+!SESSION 2016-11-07 08:28:02.052 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_45
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2016-11-07 08:29:39.625
+!MESSAGE Failed to load properties file for project 'testpython_34'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2016-11-07 08:29:40.810
+!MESSAGE Collect preferences failed, class java/lang/AutoCloseable not found in C:\andriod\android-sdk-windows\platforms\android-19\android.jar
+!STACK 0
+java.lang.NoClassDefFoundError: java/lang/AutoCloseable
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClassCond(ClassLoader.java:631)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:615)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:465)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidJarLoader.defineAndCacheClass(AndroidJarLoader.java:327)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidJarLoader.findClassesDerivingFrom(AndroidJarLoader.java:254)
+	at com.android.ide.eclipse.adt.internal.sdk.LayoutParamsParser.parseClasses(LayoutParamsParser.java:160)
+	at com.android.ide.eclipse.adt.internal.sdk.LayoutParamsParser.parsePreferencesClasses(LayoutParamsParser.java:140)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidTargetParser.collectPreferenceClasses(AndroidTargetParser.java:497)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidTargetParser.run(AndroidTargetParser.java:166)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$6.run(Sdk.java:680)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.lang.ClassNotFoundException: Prohibited package name: java.lang
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidJarLoader.findClass(AndroidJarLoader.java:313)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
+	... 12 more
+
+!ENTRY org.eclipse.ui 4 4 2016-11-07 08:43:41.529
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.

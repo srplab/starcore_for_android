@@ -1,0 +1,374 @@
+!SESSION 2015-01-04 20:10:19.083 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_25
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2015-01-04 20:12:17.786
+!MESSAGE Failed to load properties file for project 'testruby'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2015-01-04 20:12:23.536
+!MESSAGE Collect preferences failed, class java/lang/AutoCloseable not found in E:\andriod\android-sdk-windows\platforms\android-19\android.jar
+!STACK 0
+java.lang.NoClassDefFoundError: java/lang/AutoCloseable
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClassCond(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidJarLoader.defineAndCacheClass(AndroidJarLoader.java:327)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidJarLoader.findClassesDerivingFrom(AndroidJarLoader.java:254)
+	at com.android.ide.eclipse.adt.internal.sdk.LayoutParamsParser.parseClasses(LayoutParamsParser.java:160)
+	at com.android.ide.eclipse.adt.internal.sdk.LayoutParamsParser.parsePreferencesClasses(LayoutParamsParser.java:140)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidTargetParser.collectPreferenceClasses(AndroidTargetParser.java:497)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidTargetParser.run(AndroidTargetParser.java:166)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$6.run(Sdk.java:680)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.lang.ClassNotFoundException: Prohibited package name: java.lang
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidJarLoader.findClass(AndroidJarLoader.java:313)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 12 more
+
+!ENTRY org.eclipse.ui 4 4 2015-01-04 20:22:41.786
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.
+!SESSION 2015-01-05 19:04:41.084 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_25
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2015-01-05 19:04:58.912
+!MESSAGE Collect preferences failed, class java/lang/AutoCloseable not found in E:\andriod\android-sdk-windows\platforms\android-19\android.jar
+!STACK 0
+java.lang.NoClassDefFoundError: java/lang/AutoCloseable
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClassCond(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidJarLoader.defineAndCacheClass(AndroidJarLoader.java:327)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidJarLoader.findClassesDerivingFrom(AndroidJarLoader.java:254)
+	at com.android.ide.eclipse.adt.internal.sdk.LayoutParamsParser.parseClasses(LayoutParamsParser.java:160)
+	at com.android.ide.eclipse.adt.internal.sdk.LayoutParamsParser.parsePreferencesClasses(LayoutParamsParser.java:140)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidTargetParser.collectPreferenceClasses(AndroidTargetParser.java:497)
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidTargetParser.run(AndroidTargetParser.java:166)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$6.run(Sdk.java:680)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.lang.ClassNotFoundException: Prohibited package name: java.lang
+	at com.android.ide.eclipse.adt.internal.sdk.AndroidJarLoader.findClass(AndroidJarLoader.java:313)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 12 more
+!SESSION 2015-01-05 22:23:30.522 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_25
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.osgi 2 0 2015-01-05 22:23:55.756
+!MESSAGE While loading class "org.eclipse.cdt.internal.core.PositionTrackerChain", thread "Thread[Worker-2,5,main]" timed out waiting (5078ms) for thread "Thread[Worker-4,5,main]" to finish starting bundle "org.eclipse.cdt.core_5.3.2.201202111925 [781]". To avoid deadlock, thread "Thread[Worker-2,5,main]" is proceeding but "org.eclipse.cdt.internal.core.PositionTrackerChain" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:plugins/org.eclipse.cdt.core_5.3.2.201202111925.jar" by thread "Worker-4".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.createCheckpoint(PositionTrackerManager.java:107)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.bufferCreated(PositionTrackerManager.java:74)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager$11.run(TextFileBufferManager.java:802)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.fireBufferCreated(TextFileBufferManager.java:800)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:127)
+	at org.eclipse.wst.sse.core.internal.FileBufferModelManager.getModel(FileBufferModelManager.java:660)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._doCommonGetModel(ModelManagerImpl.java:544)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:508)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:481)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl.getModelForRead(ModelManagerImpl.java:1419)
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.parseXml(EclipseLintClient.java:241)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:931)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:869)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:442)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:363)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 31 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.createCheckpoint(PositionTrackerManager.java:107)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.bufferCreated(PositionTrackerManager.java:74)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager$11.run(TextFileBufferManager.java:802)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.fireBufferCreated(TextFileBufferManager.java:800)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:127)
+	at org.eclipse.wst.sse.core.internal.FileBufferModelManager.getModel(FileBufferModelManager.java:660)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._doCommonGetModel(ModelManagerImpl.java:544)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:508)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:481)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl.getModelForRead(ModelManagerImpl.java:1419)
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.parseXml(EclipseLintClient.java:241)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:931)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:869)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:442)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:363)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.osgi 2 0 2015-01-05 22:24:00.850
+!MESSAGE While loading class "org.eclipse.cdt.internal.core.PositionTracker", thread "Thread[Worker-2,5,main]" timed out waiting (5000ms) for thread "Thread[Worker-4,5,main]" to finish starting bundle "org.eclipse.cdt.core_5.3.2.201202111925 [781]". To avoid deadlock, thread "Thread[Worker-2,5,main]" is proceeding but "org.eclipse.cdt.internal.core.PositionTracker" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:plugins/org.eclipse.cdt.core_5.3.2.201202111925.jar" by thread "Worker-4".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.cdt.internal.core.PositionTrackerChain.createCheckpoint(PositionTrackerChain.java:51)
+	at org.eclipse.cdt.internal.core.PositionTrackerChain.<init>(PositionTrackerChain.java:34)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.createCheckpoint(PositionTrackerManager.java:107)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.bufferCreated(PositionTrackerManager.java:74)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager$11.run(TextFileBufferManager.java:802)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.fireBufferCreated(TextFileBufferManager.java:800)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:127)
+	at org.eclipse.wst.sse.core.internal.FileBufferModelManager.getModel(FileBufferModelManager.java:660)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._doCommonGetModel(ModelManagerImpl.java:544)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:508)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:481)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl.getModelForRead(ModelManagerImpl.java:1419)
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.parseXml(EclipseLintClient.java:241)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:931)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:869)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:442)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:363)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 33 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.cdt.internal.core.PositionTrackerChain.createCheckpoint(PositionTrackerChain.java:51)
+	at org.eclipse.cdt.internal.core.PositionTrackerChain.<init>(PositionTrackerChain.java:34)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.createCheckpoint(PositionTrackerManager.java:107)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.bufferCreated(PositionTrackerManager.java:74)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager$11.run(TextFileBufferManager.java:802)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.fireBufferCreated(TextFileBufferManager.java:800)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:127)
+	at org.eclipse.wst.sse.core.internal.FileBufferModelManager.getModel(FileBufferModelManager.java:660)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._doCommonGetModel(ModelManagerImpl.java:544)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:508)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:481)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl.getModelForRead(ModelManagerImpl.java:1419)
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.parseXml(EclipseLintClient.java:241)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:931)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:869)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:442)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:363)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.osgi 2 0 2015-01-05 22:24:05.850
+!MESSAGE While loading class "org.eclipse.cdt.internal.core.PositionTracker$Node", thread "Thread[Worker-2,5,main]" timed out waiting (5000ms) for thread "Thread[Worker-4,5,main]" to finish starting bundle "org.eclipse.cdt.core_5.3.2.201202111925 [781]". To avoid deadlock, thread "Thread[Worker-2,5,main]" is proceeding but "org.eclipse.cdt.internal.core.PositionTracker$Node" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:plugins/org.eclipse.cdt.core_5.3.2.201202111925.jar" by thread "Worker-4".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.cdt.internal.core.PositionTracker.<init>(PositionTracker.java:28)
+	at org.eclipse.cdt.internal.core.PositionTrackerChain.createCheckpoint(PositionTrackerChain.java:51)
+	at org.eclipse.cdt.internal.core.PositionTrackerChain.<init>(PositionTrackerChain.java:34)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.createCheckpoint(PositionTrackerManager.java:107)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.bufferCreated(PositionTrackerManager.java:74)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager$11.run(TextFileBufferManager.java:802)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.fireBufferCreated(TextFileBufferManager.java:800)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:127)
+	at org.eclipse.wst.sse.core.internal.FileBufferModelManager.getModel(FileBufferModelManager.java:660)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._doCommonGetModel(ModelManagerImpl.java:544)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:508)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:481)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl.getModelForRead(ModelManagerImpl.java:1419)
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.parseXml(EclipseLintClient.java:241)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:931)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:869)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:442)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:363)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 34 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.cdt.internal.core.PositionTracker.<init>(PositionTracker.java:28)
+	at org.eclipse.cdt.internal.core.PositionTrackerChain.createCheckpoint(PositionTrackerChain.java:51)
+	at org.eclipse.cdt.internal.core.PositionTrackerChain.<init>(PositionTrackerChain.java:34)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.createCheckpoint(PositionTrackerManager.java:107)
+	at org.eclipse.cdt.internal.core.PositionTrackerManager.bufferCreated(PositionTrackerManager.java:74)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager$11.run(TextFileBufferManager.java:802)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.fireBufferCreated(TextFileBufferManager.java:800)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:127)
+	at org.eclipse.wst.sse.core.internal.FileBufferModelManager.getModel(FileBufferModelManager.java:660)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._doCommonGetModel(ModelManagerImpl.java:544)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:508)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl._commonGetModel(ModelManagerImpl.java:481)
+	at org.eclipse.wst.sse.core.internal.model.ModelManagerImpl.getModelForRead(ModelManagerImpl.java:1419)
+	at com.android.ide.eclipse.adt.internal.lint.EclipseLintClient.parseXml(EclipseLintClient.java:241)
+	at com.android.tools.lint.client.api.LintDriver.runFileDetectors(LintDriver.java:931)
+	at com.android.tools.lint.client.api.LintDriver.checkProject(LintDriver.java:869)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:442)
+	at com.android.tools.lint.client.api.LintDriver.analyze(LintDriver.java:363)
+	at com.android.ide.eclipse.adt.internal.lint.LintJob.run(LintJob.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.osgi 2 0 2015-01-05 22:24:10.944
+!MESSAGE While loading class "org.eclipse.cdt.core.settings.model.util.ResourceChangeHandlerBase$DeltaVisitor", thread "Thread[Worker-0,5,main]" timed out waiting (5000ms) for thread "Thread[Worker-4,5,main]" to finish starting bundle "org.eclipse.cdt.core_5.3.2.201202111925 [781]". To avoid deadlock, thread "Thread[Worker-0,5,main]" is proceeding but "org.eclipse.cdt.core.settings.model.util.ResourceChangeHandlerBase$DeltaVisitor" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:plugins/org.eclipse.cdt.core_5.3.2.201202111925.jar" by thread "Worker-4".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.cdt.core.settings.model.util.ResourceChangeHandlerBase.doHandleResourceMove(ResourceChangeHandlerBase.java:188)
+	at org.eclipse.cdt.core.settings.model.util.ResourceChangeHandlerBase.resourceChanged(ResourceChangeHandlerBase.java:148)
+	at org.eclipse.cdt.managedbuilder.core.ResourceChangeHandler2.resourceChanged(ResourceChangeHandler2.java:171)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:395)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1530)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2353)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:793)
+	at org.eclipse.jdt.core.JavaCore.setClasspathContainer(JavaCore.java:4952)
+	at com.android.ide.eclipse.adt.internal.project.AndroidClasspathContainerInitializer.updateProjects(AndroidClasspathContainerInitializer.java:143)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.updateProjects(ProjectHelper.java:274)
+	at com.android.ide.eclipse.adt.AdtPlugin$7.run(AdtPlugin.java:1461)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 29 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.cdt.core.settings.model.util.ResourceChangeHandlerBase.doHandleResourceMove(ResourceChangeHandlerBase.java:188)
+	at org.eclipse.cdt.core.settings.model.util.ResourceChangeHandlerBase.resourceChanged(ResourceChangeHandlerBase.java:148)
+	at org.eclipse.cdt.managedbuilder.core.ResourceChangeHandler2.resourceChanged(ResourceChangeHandler2.java:171)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:395)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1530)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2353)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:793)
+	at org.eclipse.jdt.core.JavaCore.setClasspathContainer(JavaCore.java:4952)
+	at com.android.ide.eclipse.adt.internal.project.AndroidClasspathContainerInitializer.updateProjects(AndroidClasspathContainerInitializer.java:143)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.updateProjects(ProjectHelper.java:274)
+	at com.android.ide.eclipse.adt.AdtPlugin$7.run(AdtPlugin.java:1461)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-11-05 22:05:00.840 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_45
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2016-11-05 22:05:18.811
+!MESSAGE DDMS files not found: E:\andriod\android-sdk-windows\platform-tools\adb.exe E:\andriod\android-sdk-windows\tools\hprof-conv.exe E:\andriod\android-sdk-windows\tools\traceview.bat 
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2016-11-05 22:05:19.903
+!MESSAGE Fatal error: No API database found at null
