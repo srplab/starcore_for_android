@@ -6,7 +6,7 @@
 # Copyright (c) 2003 Internet Programming with Ruby writers. All rights
 # reserved.
 #
-# $Id: cgi.rb 53141 2015-12-16 05:07:31Z naruse $
+# $Id: cgi.rb 62988 2018-03-28 09:39:53Z nagachika $
 
 require "webrick/httprequest"
 require "webrick/httpresponse"
@@ -263,6 +263,10 @@ module WEBrick
 
       def <<(data)
         @out_port << data
+      end
+
+      def write(data)
+        @out_port.write(data)
       end
 
       def cert

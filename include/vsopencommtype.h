@@ -450,10 +450,12 @@ typedef VS_BOOL (SRPAPI *VS_ClientOperationCallBackProc)( VS_UWORD Para,VS_ULONG
 /*------------------------------------------------------------------------------*/
 typedef struct{
     VS_ULONG ClientMachineID;
+	VS_ULONG Reserve1;
     VSSOCKADDR_IN ClientSockAddr;  /*---client addreee*/
     VS_ULONG ClientModuleID;        /*---client program id*/
     VS_ULONG ClientServiceGroupID;  /*---client servicegroup*/
     VS_INT32   DirectConnectFlag;     /*--- ==1 direct connect£¬ ==0 through SRPDispatch*/
+	VS_INT32 Reserve2;
     VSSOCKADDR_IN SRPDispatchSockAddr;  /*---SRPDispatch address*/
     VS_ULONG SRPDispatchModuleID;        /*---SRPDispatch programID*/
     VS_ULONG SRPDispatchServiceGroupID;  /*---SRPDispatch service group*/
@@ -501,10 +503,12 @@ typedef void (SRPAPI *VS_RedirectCallBackProc)( VS_ULONG uMsg,VS_ULONG ClientID,
 typedef struct{
     /*------------upload*/
     VS_INT32 UpDataFile;  /* --0 static data  -- 1 file*/
+	VS_INT32 Reserve1;
     union{
         struct{
             VS_UUID ObjectID;                      /*---If invalid, then the object or service does not exist*/
             VS_ULONG UniqueDataUnitID;
+			VS_ULONG Reserve2;
             VS_STATICID Version;  /*--- Valid only for static data*/
         }StaticData;
         struct{
@@ -515,10 +519,12 @@ typedef struct{
     VS_INT32  UpLoadTransferSize;
     /*-------------download*/
     VS_INT32 DownDataFile;  /* --0 static data  -- 1 file*/
+	VS_INT32 Reserve3;
     union{
         struct{
             VS_UUID ObjectID;                      /*---If invalid, then the object or service does not exist*/
             VS_ULONG UniqueDataUnitID;
+			VS_ULONG Reserve4;
             VS_STATICID Version;  /*--- Valid only for static data*/
         }StaticData;
         struct{
@@ -546,10 +552,12 @@ typedef struct{
 
 typedef struct{
     VS_INT32 DataFile;  /* --0 static data  -- 1 file*/
+	VS_INT32 Reserve1;
     union{
         struct{
             VS_UUID ObjectID;                      /*---If invalid, then the object or service does not exist*/
             VS_ULONG UniqueDataUnitID;
+			VS_ULONG Reserve2;
             VS_STATICID Version;  /*--- Valid only for static data*/
             VS_UINT8 *DataBuf;      /*---set only when VSFILE_ONDOWNPROGRESS,VSFILE_ONDOWNFINISH,VSFILE_ONUPPROGRESS*/
         }StaticData;
@@ -739,7 +747,8 @@ typedef struct{
     VS_INT32    SendMsgItemBytes;         /*---The number of bytes to send a message*/
     VS_INT32    SysSendQueueOccupyRate;      /*---Platform to send the buffer occupancy */
     VS_INT32    ObjSendQueueOccupyRate;      /*---Objects transmit buffer occupancy */
-    VS_ULONG  PeerDelayTicket;           /*---To the delay on the side£¬(ms)*/
+    VS_ULONG    PeerDelayTicket;           /*---To the delay on the side£¬(ms)*/
+	VS_ULONG    Reserved;
 }VS_STATISTICINFO;
 
 /*------------------------------------------------------------------------------*/

@@ -14,8 +14,22 @@ extern "C"{
 
 /*--define version of starcore--*/
 #define VS_MAINVERSION    2
-#define VS_SUBVERSION     82 /*2.5.2*/ /*high four bits are subversion, and lower four bits are release version */
+#define VS_SUBVERSION     96 /*2.6.0*/ /*high four bits are subversion, and lower four bits are release version */
                             /*
+                               2.6.0  
+                                      1. Print warning for ruby if object's function with special name does not exist, but it has function "method_missing"
+									  2. Fix exception for remote call if object has no parent class
+									  3. The return value such as tuple/list will be try to converted to parapkg for raw object, when is called from remote size
+									  4. Support changing port number for client dynamically
+									  5. Fix memory layer byte alignment bug in communication layer
+									  6. Add definition "SRPLOADPROCESS_EXIT", when call RunFromUrl / RunFromBuf load the app, if there is an error during the loading process, starcore will automatically unloas and cleanup, then the functions return SRPLOADPROCESS_EXIT
+									  7. Solve Function "SRPI_ScriptSyncCallInt64Var2" definition wrong in vsopenapi_c.h
+									  8. Add support for mingw, separate library libstarlib.a
+									  9. Add interface function "StarCoreScript_Init2", which takes c function table as parameter.
+									  10.Fix python exits exception bug.
+									  11.Supports shared libraries not unloaded, including services, or script interfaces, because some scripts do not support unload.
+									  12.Solve symbol table undefined error for linux.
+
                                2.5.2  
                                       1. Add RunInMainThread function for ClassOfSRPControlInterface
                                       2. Add RegDispatchRequest/UnRegDispatchRequest function for ClassOfSRPControlInterface, and _RegDispatchRequest_P for script.
@@ -87,7 +101,7 @@ extern "C"{
                                2.0.6 Release for android,Support android 4.3
                                2.0.5 Release for all platform
                             */
-#define VS_BUILDVERSION   259 /*0x103*/
+#define VS_BUILDVERSION   260 /*0x104*/
 
 #define VS_OBJECTINITFUNCNAME "_StarCall"    /* function name for init instance of class object*/
 #define VS_OBJECTFUNCNAME_CALLSUPER "_SuperStar_"
@@ -172,6 +186,7 @@ typedef void (SRPAPI *VS_MessageBoxProc)(void *Object,VS_CHAR *Caption,VS_CHAR *
 /*---------set or get env info,Env Type is EnvClassTag£¬defined by app   */
 struct StructOfVSRunEnv_Para{
     VS_INT32 BufSize;
+	VS_INT32 Reserve;
     VS_INT8  Buf[1];
 };
 struct StructOfVSRunEnv{
@@ -229,6 +244,7 @@ typedef void (SRPAPI *VS_WebDownInfoProc)( VS_UWORD Para, VS_ULONG uMes, VS_CHAR
 #define SRPLOADPROCESS_BUSY      -1
 #define SRPLOADPROCESS_DISABLE   -2
 #define SRPLOADPROCESS_FAIL      -3
+#define SRPLOADPROCESS_EXIT      -4   /*--add from 2.6.0, starcore has been clear, and should not use any function or variable related with starcore*/
 
 /*--------------------------------------------------------------------------*/
 #define SRPLUAEDITMODULECONFIG_SCRIPTCONSOLE 0x00000001
@@ -388,7 +404,8 @@ struct StructOfVSScriptContext{
     /*--cleanup*/
     VSScript_CleanUpProc        CleanUpProc;
     VS_BOOL                     OnLineScriptFlag;   /*--true, canbe used for telnet, else*/
-    VS_INT8                     Reserved1[3];
+	VS_BOOL                     NotUnLoadShareLibraryWhenTerm;  /*--add 2.60.0 if true, do not unload the share library */
+    VS_INT8                     Reserved1[2];
     /*---*/
     VSScript_DetachCurrentThreadProc DetachCurrentThreadProc;
     /*---add at version 1.90.1*/
@@ -4255,6 +4272,7 @@ public:
     void Put_E_OnCall(VSSystemEvent_EventProc In_Value);
 
 #if( VS_OS_TYPE == VS_OS_WINDOW )
+#if !defined(COMPILER_MINGW)
 public:
     __declspec(property(get=Get_E_OnFirstCreate, put=Put_E_OnFirstCreate)) VSSystemEvent_EventProc E_OnFirstCreate;
     __declspec(property(get=Get_E_OnMalloc, put=Put_E_OnMalloc)) VSSystemEvent_EventProc E_OnOnMalloc;
@@ -4284,6 +4302,7 @@ public:
     __declspec(property(get=Get_E_OnLoadFinish, put=Put_E_OnLoadFinish)) VSSystemEvent_EventProc E_OnLoadFinish;
     __declspec(property(get=Get_E_OnRemoteSend, put=Put_E_OnRemoteSend)) VSSystemEvent_EventProc E_RemoteSend;
     __declspec(property(get=Get_E_OnCall, put=Put_E_OnCall)) VSSystemEvent_EventProc E_Call;
+#endif
 #endif
 
 public:
@@ -5044,6 +5063,8 @@ typedef void (SRPAPI *StarCoreService_Term2Proc)( class ClassOfStarCore *StarCor
 extern "C" SRPDLLEXPORT void SRPAPI StarCoreService_Term2(class ClassOfStarCore *StarCore, struct StructOfVSStarCoreInterfaceTable *InterfaceTable );     /*--StarCore is reserved, and set to NULL*/
 /*note: from v2.0, XXXX_Init2Proc and XXXX_Term2Proc are supported, where XXXX is module name without file ext*/
 
+/*note: from v2.60, For native service(C or C++), if _Init or Init2 return value other than VS_TRUE or VS_FALSE, then the service share library will not be unloaded. */
+
 /*------------------------------*/
 extern void starlib_uuidtostring(VS_UUID *ObjectUUID,VS_INT8 *Buf);
 extern VS_BOOL starlib_stringtouuid(const VS_INT8 *Buf,VS_UUID *ObjectUUID);
@@ -5147,6 +5168,17 @@ extern "C" SRPDLLEXPORT VS_BOOL SRPAPI StarCoreScript_Init(VS_CHAR *ScriptName,V
 extern SRPDLLEXPORT VS_BOOL SRPAPI StarCoreScript_Init(VS_CHAR *ScriptName,VS_CHAR *Para,VSCore_RegisterCallBackInfoProc RegisterCallBackInfoProc,VSCore_UnRegisterCallBackInfoProc UnRegisterCallBackInfoProc,VSCore_InitProc InitProc,VSCore_TermProc TermProc,VSCore_TermExProc TermExProc,VSCore_HasInitProc HasInitProc,VSCore_QueryControlInterfaceProc QueryControlInterfaceProc,void *VirtualMachine);
 #endif
 /* init function name maybe as  "star_"+ScriptName+"_ScriptInit"          add version 2.1.0 */
+
+/*--2.6.0, add StarCoreScript_Init2 */
+#define VSCORE_STARCORESCRIPT_INIT_NAME2 "StarCoreScript_Init2"
+typedef VS_BOOL (SRPAPI *StarCoreScript_Init2Proc)( VS_CHAR *ScriptName,VS_CHAR *Para,VSCore_RegisterCallBackInfoProc RegisterCallBackInfoProc,VSCore_UnRegisterCallBackInfoProc UnRegisterCallBackInfoProc,VSCore_InitProc InitProc,VSCore_TermProc TermProc,VSCore_TermExProc TermExProc,VSCore_HasInitProc HasInitProc,VSCore_QueryControlInterfaceProc QueryControlInterfaceProc,struct StructOfVSStarCoreInterfaceTable *InterfaceTable,void *VirtualMachine);
+#if defined(__cplusplus) || defined(c_plusplus)
+extern "C" SRPDLLEXPORT VS_BOOL SRPAPI StarCoreScript_Init2(VS_CHAR *ScriptName,VS_CHAR *Para,VSCore_RegisterCallBackInfoProc RegisterCallBackInfoProc,VSCore_UnRegisterCallBackInfoProc UnRegisterCallBackInfoProc,VSCore_InitProc InitProc,VSCore_TermProc TermProc,VSCore_TermExProc TermExProc,VSCore_HasInitProc HasInitProc,VSCore_QueryControlInterfaceProc QueryControlInterfaceProc,struct StructOfVSStarCoreInterfaceTable *InterfaceTable,void *VirtualMachine);
+#else
+extern SRPDLLEXPORT VS_BOOL SRPAPI StarCoreScript_Init2(VS_CHAR *ScriptName,VS_CHAR *Para,VSCore_RegisterCallBackInfoProc RegisterCallBackInfoProc,VSCore_UnRegisterCallBackInfoProc UnRegisterCallBackInfoProc,VSCore_InitProc InitProc,VSCore_TermProc TermProc,VSCore_TermExProc TermExProc,VSCore_HasInitProc HasInitProc,VSCore_QueryControlInterfaceProc QueryControlInterfaceProc,struct StructOfVSStarCoreInterfaceTable *InterfaceTable,void *VirtualMachine);
+#endif
+/* init function name maybe as  "star_"+ScriptName+"_ScriptInit2"          add version 2.6.0 */
+
 /*typedef void (SRPAPI *StarCoreScript_TermProc)( ); */
 
 #if( VS_OS_TYPE == VS_OS_IOS || VS_OS_TYPE == VS_OS_MACOS )  /* object_c bridge, add version 2.50.0 */

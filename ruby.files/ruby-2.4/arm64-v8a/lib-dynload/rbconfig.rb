@@ -10,7 +10,7 @@
 
 module RbConfig
   RUBY_VERSION.start_with?("2.4.") or
-    raise "ruby lib version (2.4.2) doesn't match executable version (#{RUBY_VERSION})"
+    raise "ruby lib version (2.4.4) doesn't match executable version (#{RUBY_VERSION})"
 
   # Ruby installed directory.
   TOPDIR = File.dirname(__FILE__).chomp!("/lib/ruby/2.4.0/aarch64-linux")
@@ -21,11 +21,11 @@ module RbConfig
   CONFIG["DESTDIR"] = DESTDIR
   CONFIG["MAJOR"] = "2"
   CONFIG["MINOR"] = "4"
-  CONFIG["TEENY"] = "2"
-  CONFIG["PATCHLEVEL"] = "198"
+  CONFIG["TEENY"] = "4"
+  CONFIG["PATCHLEVEL"] = "296"
   CONFIG["INSTALL"] = '/usr/bin/install -c'
   CONFIG["EXEEXT"] = ""
-  CONFIG["prefix"] = (TOPDIR || DESTDIR + "/usr/local/android/install/ruby242.aarch64")
+  CONFIG["prefix"] = (TOPDIR || DESTDIR + "/usr/local/android/install/ruby244.aarch64")
   CONFIG["ruby_install_name"] = "$(RUBY_BASE_NAME)"
   CONFIG["RUBY_INSTALL_NAME"] = "$(RUBY_BASE_NAME)"
   CONFIG["RUBY_SO_NAME"] = "$(RUBY_BASE_NAME)"
@@ -45,7 +45,7 @@ module RbConfig
   CONFIG["RUBY_SEARCH_PATH"] = ""
   CONFIG["UNIVERSAL_INTS"] = ""
   CONFIG["UNIVERSAL_ARCHNAMES"] = ""
-  CONFIG["configure_args"] = " 'LDFLAGS=-lm -llog -L../../../../../sqlite/android_3140100.aarch64/obj/local/arm64-v8a -L../../../../../openssl.android.linux/install/openssl.aarch64/lib' 'CFLAGS=-mandroid -fomit-frame-pointer -Wno-format' 'CPPFLAGS=-I../../../../../sqlite/sqlite-autoconf-3140100 -I../../../../../openssl.android.linux/install/openssl.aarch64/include' '--host=aarch64-linux' '--build=i686-pc-linux-gnu' '--enable-shared' '--prefix=/usr/local/android/install/ruby242.aarch64' '--with-baseruby=/usr/bin/ruby' '--disable-ipv6' '--disable-rubygems' '--disable-install-doc' '--disable-install-rdoc' '--disable-install-capi' '--without-ext=fiddle' '--without-ext=readline' '--disable-rpath' 'build_alias=i686-pc-linux-gnu' 'host_alias=aarch64-linux' 'CC=aarch64-linux-android-gcc -DANDROID -mandroid -fomit-frame-pointer --sysroot=/usr/local/android/android-ndk-r10d/platforms/android-21/arch-arm64' 'CXX=aarch64-linux-android-g++ -DANDROID -mandroid -fomit-frame-pointer --sysroot=/usr/local/android/android-ndk-r10d/platforms/android-21/arch-arm64' 'CXXFLAGS=-DANDROID -mandroid -fomit-frame-pointer --sysroot=/usr/local/android/android-ndk-r10d/platforms/android-21/arch-arm64'"
+  CONFIG["configure_args"] = " 'LDFLAGS=-lm -llog -L../../../../../sqlite/android_3140100.aarch64/obj/local/arm64-v8a -L../../../../../openssl.android.linux/install/openssl.aarch64/lib' 'CFLAGS=-mandroid -fomit-frame-pointer -Wno-format' 'CPPFLAGS=-I../../../../../sqlite/sqlite-autoconf-3140100 -I../../../../../openssl.android.linux/install/openssl.aarch64/include' '--host=aarch64-linux' '--build=i686-pc-linux-gnu' '--enable-shared' '--prefix=/usr/local/android/install/ruby244.aarch64' '--with-baseruby=/usr/bin/ruby' '--disable-ipv6' '--disable-rubygems' '--disable-install-doc' '--disable-install-rdoc' '--disable-install-capi' '--without-ext=fiddle' '--without-ext=readline' '--disable-rpath' 'build_alias=i686-pc-linux-gnu' 'host_alias=aarch64-linux' 'CC=aarch64-linux-android-gcc -DANDROID -mandroid -fomit-frame-pointer --sysroot=/usr/local/android/android-ndk-r10d/platforms/android-21/arch-arm64' 'CXX=aarch64-linux-android-g++ -DANDROID -mandroid -fomit-frame-pointer --sysroot=/usr/local/android/android-ndk-r10d/platforms/android-21/arch-arm64' 'CXXFLAGS=-DANDROID -mandroid -fomit-frame-pointer --sysroot=/usr/local/android/android-ndk-r10d/platforms/android-21/arch-arm64'"
   CONFIG["CONFIGURE"] = "configure"
   CONFIG["vendorarchdir"] = "$(vendorlibdir)/$(sitearch)"
   CONFIG["vendorlibdir"] = "$(vendordir)/$(ruby_version)"
@@ -63,7 +63,7 @@ module RbConfig
   CONFIG["sitearchlibdir"] = "$(libdir)/$(sitearch)"
   CONFIG["archlibdir"] = "$(libdir)/$(arch)"
   CONFIG["libdirname"] = "libdir"
-  CONFIG["RUBY_EXEC_PREFIX"] = "/usr/local/android/install/ruby242.aarch64"
+  CONFIG["RUBY_EXEC_PREFIX"] = "/usr/local/android/install/ruby244.aarch64"
   CONFIG["RUBY_LIB_VERSION"] = ""
   CONFIG["RUBY_LIB_VERSION_STYLE"] = "3\t/* full */"
   CONFIG["RI_BASE_NAME"] = "ri"
@@ -198,7 +198,7 @@ module RbConfig
   CONFIG["build_vendor"] = "pc"
   CONFIG["build_cpu"] = "i686"
   CONFIG["build"] = "i686-pc-linux-gnu"
-  CONFIG["RUBY_PROGRAM_VERSION"] = "2.4.2"
+  CONFIG["RUBY_PROGRAM_VERSION"] = "2.4.4"
   CONFIG["cxxflags"] = "$(optflags) $(debugflags) $(warnflags)"
   CONFIG["cppflags"] = ""
   CONFIG["cflags"] = "$(optflags) $(debugflags) $(warnflags)"

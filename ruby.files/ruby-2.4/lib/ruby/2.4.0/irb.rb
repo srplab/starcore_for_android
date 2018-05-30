@@ -2,7 +2,7 @@
 #
 #   irb.rb - irb main module
 #       $Release Version: 0.9.6 $
-#       $Revision: 56624 $
+#       $Revision: 62185 $
 #       by Keiju ISHITSUKA(keiju@ruby-lang.org)
 #
 # --
@@ -709,7 +709,7 @@ end
 class Binding
   # :nodoc:
   def irb
-    IRB.setup(eval("__FILE__"))
+    IRB.setup(eval("__FILE__"), argv: [])
     IRB::Irb.new(IRB::WorkSpace.new(self)).run(IRB.conf)
   end
 end

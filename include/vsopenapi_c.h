@@ -714,6 +714,9 @@ typedef void (SRPAPI *SRPBinBuf_ReleaseOwner_Proc)(void *c_this);
 
 typedef void (SRPAPI *SRPBinBuf_FromRaw_Proc)(void *c_this,VS_BOOL In_FromBytesArray);
 typedef VS_BOOL (SRPAPI *SRPBinBuf_IsFromRaw_Proc)(void *c_this);
+
+typedef void (SRPAPI *SRPBinBuf_SetName_Proc)(void *c_this,const VS_CHAR *Buf);
+typedef VS_CHAR *(SRPAPI *SRPBinBuf_GetName_Proc)(void *c_this);
 /*==========================================================================================================================================*/
 /*  ClassOfSRPParaPackageInterface                                                                                                                                        */
 /*==========================================================================================================================================*/
@@ -1960,7 +1963,7 @@ typedef void *(SRPAPI *StarCore_GetBasicInterface_Proc)(void *c_this);
 /*  Memory Function                                                                                                                         */
 /*==========================================================================================================================================*/
 typedef void (SRPAPI *SRPMM_memset_Proc)(void *Buf,VS_INT8 c,VS_INT32 Len);
-typedef void (SRPAPI *SRPMM_memcpy_Proc)(void *DesBuf,void *SrcBuf,VS_INT32 Len);
+typedef void (SRPAPI *SRPMM_memcpy_Proc)(void *DesBuf,const void *SrcBuf,VS_INT32 Len);
 typedef VS_INT32 (SRPAPI *SRPMM_strlen_Proc)(VS_INT8 *Buf);
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 #if !defined(_STARCORELIBRARY)
@@ -2677,6 +2680,8 @@ extern "C" VS_ULONG SRPAPI SRPBinBuf_GetHashValue(void *c_this);
 extern "C" void SRPAPI SRPBinBuf_ReleaseOwner(void *c_this);
 extern "C" void SRPAPI SRPBinBuf_FromRaw(void *c_this,VS_BOOL In_FromBytesArray);
 extern "C" VS_BOOL SRPAPI SRPBinBuf_IsFromRaw(void *c_this);
+extern "C" void SRPAPI SRPBinBuf_SetName(void *c_this,const VS_CHAR *Buf);
+extern "C" VS_CHAR *SRPAPI SRPBinBuf_GetName(void *c_this);
 
 /*==========================================================================================================================================*/
 /*  ClassOfSRPParaPackageInterface                                                                                                                                        */
@@ -4636,6 +4641,8 @@ extern VS_ULONG SRPAPI SRPBinBuf_GetHashValue(void *c_this);
 extern void SRPAPI SRPBinBuf_ReleaseOwner(void *c_this);
 extern void SRPAPI SRPBinBuf_FromRaw(void *c_this,VS_BOOL In_FromBytesArray);
 extern VS_BOOL SRPAPI SRPBinBuf_IsFromRaw(void *c_this);
+extern void SRPAPI SRPBinBuf_SetName(void *c_this,const VS_CHAR *Buf);
+extern VS_CHAR *SRPAPI SRPBinBuf_GetName(void *c_this);
 
 /*==========================================================================================================================================*/
 /*  ClassOfSRPParaPackageInterface                                                                                                                                        */
@@ -5755,7 +5762,7 @@ extern VS_DOUBLE SRPAPI SRPI_ScriptSyncCallDoubleVar(void *c_this,void *Object,V
 extern VS_FLOAT SRPAPI SRPI_ScriptSyncFCall2(void *c_this,void *Object,VS_ULONG *RetCode,const VS_CHAR *FunctionName,const VS_CHAR *TypeSet,VS_UINT8 *RetType,...);
 extern VS_FLOAT SRPAPI SRPI_ScriptSyncFCallVar2(void *c_this,void *Object,VS_ULONG *RetCode,const VS_CHAR *FunctionName,const VS_CHAR *TypeSet,VS_UINT8 *RetType,va_list argList);
 extern VS_INT64 SRPAPI SRPI_ScriptSyncCallInt642(void *c_this,void *Object,VS_ULONG *RetCode,const VS_CHAR *FunctionName,const VS_CHAR *TypeSet,VS_UINT8 *RetType,...);
-extern VS_INT64 SRPAPI SRPI_ScriptSyncCallInt64Var2(void *c_this,void *Object,VS_ULONG *RetCode,const VS_CHAR *FunctionNameconst VS_CHAR *TypeSet,VS_UINT8 *RetType,va_list argList);
+extern VS_INT64 SRPAPI SRPI_ScriptSyncCallInt64Var2(void *c_this,void *Object,VS_ULONG *RetCode,const VS_CHAR *FunctionName,const VS_CHAR *TypeSet,VS_UINT8 *RetType,va_list argList);
 extern VS_DOUBLE SRPAPI SRPI_ScriptSyncCallDouble2(void *c_this,void *Object,VS_ULONG *RetCode,const VS_CHAR *FunctionName,const VS_CHAR *TypeSet,VS_UINT8 *RetType,...);
 extern VS_DOUBLE SRPAPI SRPI_ScriptSyncCallDoubleVar2(void *c_this,void *Object,VS_ULONG *RetCode,const VS_CHAR *FunctionName,const VS_CHAR *TypeSet,VS_UINT8 *RetType,va_list argList);
 
@@ -5880,7 +5887,7 @@ extern void *SRPAPI StarCore_GetBasicInterface(void *c_this);
 /*  Memory Function                                                                                                                         */
 /*==========================================================================================================================================*/
 extern void SRPAPI SRPMM_memset(void *Buf,VS_INT8 c,VS_INT32 Len);
-extern void SRPAPI SRPMM_memcpy(void *DesBuf,void *SrcBuf,VS_INT32 Len);
+extern void SRPAPI SRPMM_memcpy(void *DesBuf,const void *SrcBuf,VS_INT32 Len);
 extern VS_INT32 SRPAPI SRPMM_strlen(VS_INT8 *Buf);
 #endif
 #endif
@@ -7760,6 +7767,67 @@ struct StructOfVSStarCoreInterfaceTable{
     SRPControl_UnRegDispatchRequest_Proc SRPControl_UnRegDispatchRequest;
 
 	SRPI_GetNameEx_Proc                 SRPI_GetNameEx;
+
+	/*--v2.6.0--missing functions*/
+	SRPControl_ProcessErrorVar_Proc     SRPControl_ProcessErrorVar;
+	SRPControl_ProcessLuaErrorVar_Proc  SRPControl_ProcessLuaErrorVar;
+
+	SRPBasic_PrintVar_Proc              SRPBasic_PrintVar;
+	SRPBasic_PrintLuaVar_Proc           SRPBasic_PrintLuaVar;
+
+	SRPBasic_MessageBoxVar_Proc         SRPBasic_MessageBoxVar;
+	SRPBasic_ProcessErrorVar_Proc       SRPBasic_ProcessErrorVar;
+	SRPBasic_ProcessLuaErrorVar_Proc    SRPBasic_ProcessLuaErrorVar;
+
+	SRPBinBuf_PrintVar_Proc             SRPBinBuf_PrintVar;
+
+	SRPI_RemoteCallVar_Proc             SRPI_RemoteCallVar;
+	SRPI_RemoteCallExVar_Proc           SRPI_RemoteCallExVar;
+	SRPI_SRemoteCallVar_Proc            SRPI_SRemoteCallVar;
+	SRPI_ARemoteCallVar_Proc            SRPI_ARemoteCallVar;
+	SRPI_PrintVar_Proc                  SRPI_PrintVar;
+	SRPI_PrintLuaVar_Proc               SRPI_PrintLuaVar;
+	SRPI_MessageBoxVar_Proc             SRPI_MessageBoxVar;
+	SRPI_ProcessErrorVar_Proc           SRPI_ProcessErrorVar;
+	SRPI_ProcessLuaErrorVar_Proc        SRPI_ProcessLuaErrorVar;
+	SRPI_TraceVar_Proc                  SRPI_TraceVar;
+	SRPI_CallVar_Proc                   SRPI_CallVar;
+	SRPI_FCallVar_Proc                  SRPI_FCallVar;
+	SRPI_SetVar_Proc                    SRPI_SetVar;
+	SRPI_SetVarEx_Proc                  SRPI_SetVarEx;
+	SRPI_ScriptCallVar_Proc             SRPI_ScriptCallVar;
+	SRPI_ScriptFCallVar_Proc            SRPI_ScriptFCallVar;
+	SRPI_ScriptRCallVar_Proc            SRPI_ScriptRCallVar;
+	SRPI_ScriptRCallExVar_Proc          SRPI_ScriptRCallExVar;
+	SRPI_ScriptSRCallVar_Proc           SRPI_ScriptSRCallVar;
+	SRPI_ScriptFSRCallVar_Proc          SRPI_ScriptFSRCallVar;
+	SRPI_ScriptCallVar2_Proc            SRPI_ScriptCallVar2;
+	SRPI_ScriptSRCallVar2_Proc          SRPI_ScriptSRCallVar2;
+	SRPI_IMallocStaticObjectVar2_Proc   SRPI_IMallocStaticObjectVar2;
+	SRPI_IMallocStaticObjectExVar2_Proc SRPI_IMallocStaticObjectExVar2;
+	SRPI_IMallocGlobalObjectVar2_Proc   SRPI_IMallocGlobalObjectVar2;
+	SRPI_IMallocGlobalObjectExVar2_Proc SRPI_IMallocGlobalObjectExVar2;
+	SRPI_IMallocObjectVar2_Proc         SRPI_IMallocObjectVar2;
+	SRPI_IMallocObjectExVar2_Proc       SRPI_IMallocObjectExVar2;
+	SRPI_IMallocObjectLVar2_Proc        SRPI_IMallocObjectLVar2;
+	SRPI_IMallocObjectLExVar2_Proc      SRPI_IMallocObjectLExVar2;
+	SRPI_IMallocClientObjectVar2_Proc   SRPI_IMallocClientObjectVar2;
+	SRPI_IMallocClientObjectExVar2_Proc SRPI_IMallocClientObjectExVar2;
+	SRPI_ScriptSyncCallVar_Proc         SRPI_ScriptSyncCallVar;
+	SRPI_ScriptSyncFCallVar_Proc        SRPI_ScriptSyncFCallVar;
+	SRPI_ScriptSyncCallVar2_Proc        SRPI_ScriptSyncCallVar2;
+
+	SRPBinBuf_SetName_Proc              SRPBinBuf_SetName;
+	SRPBinBuf_GetName_Proc              SRPBinBuf_GetName;
+
+	/*--export functions--*/
+	VSCore_RegisterCallBackInfoProc     RegisterCallBackInfoProc;
+	VSCore_UnRegisterCallBackInfoProc   UnRegisterCallBackInfoProc;
+	VSCore_InitProc                     InitProc;
+	VSCore_TermProc                     TermProc;
+	VSCore_TermExProc                   TermExProc;
+	VSCore_HasInitProc                  HasInitProc;
+	VSCore_QueryControlInterfaceProc    QueryControlInterfaceProc;
 
 };
 
