@@ -1,4 +1,0 @@
-INDEX VERSION 1.126+D:\Work\starcore\core\android\examples\testlua\.metadata\.plugins\org.eclipse.jdt.core
-3551991627.index
-3268117942.index
-1420431580.index
