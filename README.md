@@ -15,16 +15,35 @@ We recommend that developers write primary logic in a scripting language, and GU
 - Providing unified interface to multiple script language.
 
 
-## starcore_for_android v2.5.2
+## starcore_for_android v2.6.0
 
-- c/c++, lua, python2.7.14, 3.4.5, 3.5.4, 3.6.3, java, ruby225, 235,242
+- c/c++, lua, python2.7.15, 3.4.5, 3.5.4, 3.6.5, java, ruby225, 235,245,251
 - lua 5.3.4
 - support delphi
+- support go lang ->
+- support rust lang ->
 - 32/64bit version
+- Licensed to single user
 - Free trial
+- Size(280MB)
 
 
 ## History of CLE
+
+### v2.6.0
+- 1. Print warning for ruby if object's function with special name does not exist, but it has function "method_missing"
+- 2. Fix exception for remote call if object has no parent class
+- 3. The return value such as tuple/list will be try to converted to parapkg for raw object, when is called from remote size
+- 4. Support changing port number for client dynamically
+- 5. Fix memory layer byte alignment bug in communication layer
+- 6. Add definition "SRPLOADPROCESS_EXIT", when call RunFromUrl / RunFromBuf load the app, if there is an error during the loading process, starcore will automatically unloas and cleanup, then the functions return SRPLOADPROCESS_EXIT
+- 7. Solve Function "SRPI_ScriptSyncCallInt64Var2" definition wrong in vsopenapi_c.h
+- 8. Add support for mingw, separate library libstarlib.a
+- 9. Add interface function "StarCoreScript_Init2", which takes c function table as parameter.
+- 10.Fix python exits exception bug.
+- 11.Supports shared libraries not unloaded, including services, or script interfaces, because some scripts do not support unload.
+- 12.Solve symbol table undefined error for linux. 
+- released at 2018/05/30 
 
 ### v2.5.2
 - Add RunInMainThread function for ClassOfSRPControlInterface
