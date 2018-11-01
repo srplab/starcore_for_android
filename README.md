@@ -15,20 +15,31 @@ We recommend that developers write primary logic in a scripting language, and GU
 - Providing unified interface to multiple script language.
 
 
-## starcore_for_android v2.6.0
+## starcore_for_android v3.0.0
 
-- c/c++, lua, python2.7.15, 3.4.5, 3.5.4, 3.6.5, java, ruby225, 235,244,251
-- lua 5.3.4
+- c/c++, lua, python2.7/3.4/3.5/3.6/3.7,java, ruby22/23/24/25
+- lua 5.3.5
 - support delphi
-- support go lang ->
-- support rust lang ->
 - 32/64bit version
-- Licensed to single user
-- Free trial
-- Size(280MB)
+- Free
 
 
 ## History of CLE
+
+### v3.0.0
+- 1. Support for overriding of object functions, including encapsulated script raw objects.If object is an instance of a raw class, or if it is a raw object itself, function overriding is not supported. If overriding is needed, a new cle instance of it must be created and overriding function on the new instance.
+- 2. Optimize script object multi-thread scheduling, added SRPDispatch related callback function for script interface module.
+- 3. Add _RegServiceClearCallBack_P function for script interface, which is called before the service is cleared. After the function returns, the cle platform will delete the CLE object.
+- 4. For java scripts, support for accessing static properties and static functions of classes through instances
+- 5. Add platform callback MSG_ONINTERFACE_ACTIVATE
+- 6. Add a static library: starcore.lib(windows)/libstarcore.a, which can be linked to the lua core library and support lua editing debuggers such as ZeroBrane Studio. Also includes the compiled shared library starcore53.dll/luastarcore53.so/luastarcore53.dylib without the lua core.
+- 7. Add RestfulCall and JSonCall, input the string in JSon format, and output the string in JSon format.
+- 8. Dynamic library export function adds VSCore_GetCFunctionTable, in order to facilitate access to the functions provided by the CLE platform through the C interface.
+- 9. Lua kernel upgrade to 5.3.5
+- 10. Support python 3.7
+- 11. Bug fix.
+- 12. Licence Change, Divided into community version and professional version, the community version is completely free, there is no longer the maximum number of objects to create, the professional version provides some advanced features, such as function overriding, object creation event capture, etc., see the programming guide for details. 
+- released at 2018/11/01 
 
 ### v2.6.0
 - 1. Print warning for ruby if object's function with special name does not exist, but it has function "method_missing"
