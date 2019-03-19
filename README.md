@@ -15,7 +15,7 @@ We recommend that developers write primary logic in a scripting language, and GU
 - Providing unified interface to multiple script language.
 
 
-## starcore_for_android v3.0.0
+## starcore_for_android v3.1.0
 
 - c/c++, lua, python2.7/3.4/3.5/3.6/3.7,java, ruby22/23/24/25
 - lua 5.3.5
@@ -25,6 +25,26 @@ We recommend that developers write primary logic in a scripting language, and GU
 
 
 ## History of CLE
+### v3.1.0
+- 1. add function for ClassOfSRPInterface: "GetAttributeIndex", "XmlToObjectEx", "InstNumber", "InstNumberEx", "AllObject"
+- 2. add function for ClassOfSRPControlInterface : "ReleaseScriptGIL", "CaptureScriptGIL"
+- 3. add function for vs_shell: "vs_tm_gettickcount64"
+- 4. add function for script interface: "_InstNumber"
+- 5. add function for ClassOfSRPParaPackageInterface : "GetDesc", "GetValueStr", "Equals"; script function "_V", "_Equals"
+- 6. add object's event "VSEVENT_SYSTEMEVENT_ONBEFOREDESTORY"
+- 7. add script function "AttachRawObjectEx(RawObject,IsCLECall)", if RawObject is true, the first arg of raw function must be (Object cleobj /(StarObjectClass cleobj, ...)
+- 8. add core object "StarObjectSpace", which is used to manage object's space
+- 9. for lua,python,ruby, support using string key to set or get value from parapkg
+- 10. support python decorator, _RegMsgCallBack_P,_RegDispatchRequest_P,_RegServiceClearCallBack_P,_MsgLoop_P,_RegDispatchCallBack_P,_RegSysEventProc_P,_RegScriptProc_P. for example,  @realm._RegScriptProc_P('OnBeforeExecute')   def realm_OnBeforeExecute(CleObj):  pass   
+- 11. support directly get or set two/three dimensional set of c# from other script lang
+- 12. function "ChangeParent" can accept NULL as parent object.
+- 13. set default value of CheckPassword to false
+- 14. fix bug for byte alignment of atomic attribute
+- 15. fix bug for lua function "SrvGroup._NewParaPkg(xx)"
+- 16. fix bug for ClassOfSRPParaPackageInterface's function "InsertEmpty"
+- 17. fix bug for can not get first object from parent's object queue for script lang.
+- 18. fix bug for json to support 64bit integer
+- released at 2019/03/20
 
 ### v3.0.0
 - 1. Support for overriding of object functions, including encapsulated script raw objects.If object is an instance of a raw class, or if it is a raw object itself, function overriding is not supported. If overriding is needed, a new cle instance of it must be created and overriding function on the new instance.
