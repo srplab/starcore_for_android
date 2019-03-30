@@ -15,7 +15,7 @@ We recommend that developers write primary logic in a scripting language, and GU
 - Providing unified interface to multiple script language.
 
 
-## starcore_for_android v3.1.0
+## starcore_for_android v3.2.0
 
 - c/c++, lua, python2.7/3.4/3.5/3.6/3.7,java, ruby22/23/24/25
 - lua 5.3.5
@@ -25,6 +25,12 @@ We recommend that developers write primary logic in a scripting language, and GU
 
 
 ## History of CLE
+
+### v3.2.0
+- fix bug of VS_QUERYRECORD memory corrupt for 64bit version
+- fix bug of load native service share library for macos
+- released at 2019/03/30
+
 ### v3.1.0
 - 1. add function for ClassOfSRPInterface: "GetAttributeIndex", "XmlToObjectEx", "InstNumber", "InstNumberEx", "AllObject"
 - 2. add function for ClassOfSRPControlInterface : "ReleaseScriptGIL", "CaptureScriptGIL"
