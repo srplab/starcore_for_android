@@ -26,6 +26,12 @@ We recommend that developers write primary logic in a scripting language, and GU
 
 ## History of CLE
 
+
+### v3.3.0
+- fix bug of VS_QUERYRECORD memory corrupt for 64bit version
+- upgrade the "starmodule" tool 
+- released at 2019/05/25
+
 ### v3.2.0
 - fix bug of VS_QUERYRECORD memory corrupt for 64bit version
 - fix bug of load native service share library for macos
