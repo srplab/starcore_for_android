@@ -28,7 +28,7 @@ We recommend that developers write primary logic in a scripting language, and GU
 
 ### v3.4.0
 - fixed bug when initialize cle on macos, sometimes waiting too long.
-- fixed bug when initialize cle on macos, sometimes waiting too long.
+- support java 9 or above
 - released at 2019/06/02
 
 ### v3.3.0
