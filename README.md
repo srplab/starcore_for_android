@@ -15,7 +15,7 @@ We recommend that developers write primary logic in a scripting language, and GU
 - Providing unified interface to multiple script language.
 
 
-## starcore_for_android v3.5.0
+## starcore_for_android v3.6.0
 
 - c/c++, lua, python2.7/3.4/3.5/3.6/3.7,java, ruby22/23/24/25
 - lua 5.3.5
@@ -25,6 +25,12 @@ We recommend that developers write primary logic in a scripting language, and GU
 
 
 ## History of CLE
+
+### v3.6.0
+- Solve the bug of parapkg function GetValueStr
+- Add the function GetObjectEx3 to get all the objects with the same name. The service object of the script adds the function _GetObjectEx3
+- Add GetStarSpace to get the namespace object, the script's Service object adds the function _GetStarSpace
+- released at 2019/10/05
 
 ### v3.5.0
 - Add the object index count change callback function for SRPControlInterface, RegRefCountChangeCallBack and UnRegRefCountChangeCallBack
