@@ -15,9 +15,9 @@ We recommend that developers write primary logic in a scripting language, and GU
 - Providing unified interface to multiple script language.
 
 
-## starcore_for_android v3.7.0
+## starcore_for_android v3.7.3
 
-- c/c++, lua, python2.7/3.4/3.5/3.6/3.7,java, ruby22/23/24/25
+- c/c++, lua, python2.7/3.4/3.5/3.6/3.7/3.8,java, ruby22/23/24/25
 - lua 5.3.5
 - support delphi
 - 32/64bit version
@@ -25,6 +25,15 @@ We recommend that developers write primary logic in a scripting language, and GU
 
 
 ## History of CLE
+
+### 3.7.3
+- Fix the installation problem for python3 on macos,version above 10.15
+- Fix the bug of VSEVENT_SYSTEMEVENT_ONDESTROYCHILD event cannot generate before the object is released. Note: to generate this event, you need to set the mask SetChildEventMask(CNodeSetBase, GetLayer(Object), VSSYSEVENT_PROCESS_DESTROY)
+- Add the function ChangeParentEx to insert the object in front of the queue for SRPInterface.
+- Adds functions RegFreeCallBack/UnRegFreeCallBack for SRPInerface, which is called before the object is released. When it is called, the property of the object does not change. After the function returns, the object will be released
+- Optimizes InsertObject and GetObject functions for ParaPkg interface
+- LuaIsFunctionDefined and DefLuaFunction is changed, which will not call the callback function registered by RegLuaGetValueFunc
+- released at 2020/07/15 
 
 ### v3.7.0
 - Solve the bug that LuaIsFunctionDeined is not affected by InvalidRegLuaFunction
