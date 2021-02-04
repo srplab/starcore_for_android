@@ -15,7 +15,7 @@ We recommend that developers write primary logic in a scripting language, and GU
 - Providing unified interface to multiple script language.
 
 
-## starcore_for_android v3.7.5
+## starcore_for_android v3.7.6
 
 - c/c++, lua, python2.7/3.4/3.5/3.6/3.7/3.8/3.9,java, ruby22/23/24/25
 - lua 5.3.5
@@ -25,6 +25,14 @@ We recommend that developers write primary logic in a scripting language, and GU
 
 
 ## History of CLE
+
+### 3.7.6
+- Solve the bug that the number of parameters is sometimes one more when calling native script functions
+- Resolve python warning message : DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+- Modify the search path of the script interface module, the order is: current path> ShareLibrary path> starcore installation path
+- Script function _Call/_SyncCall, the function name can be NULL. At this time, the function name is automatically set to "_StarCall", which can be used when the object is a native function or when the object's constructor is called
+- released at 2021/02/04 
+
 ### 3.7.5
 - Adds functions GetCoreOperationPath/SetCoreLibraryPath/GetCoreLibraryPath/SetShareLibraryPath/GetShareLibraryPath for SRPControlInterface
 - Fix bug of ImportRawContext for java interface on android
