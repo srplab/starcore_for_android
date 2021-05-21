@@ -15,7 +15,7 @@ We recommend that developers write primary logic in a scripting language, and GU
 - Providing unified interface to multiple script language.
 
 
-## starcore_for_android v3.7.6
+## starcore_for_android v3.7.8
 
 - c/c++, lua, python2.7/3.4/3.5/3.6/3.7/3.8/3.9,java, ruby22/23/24/25
 - lua 5.3.5
@@ -25,6 +25,10 @@ We recommend that developers write primary logic in a scripting language, and GU
 
 
 ## History of CLE
+### 3.7.8
+- Add script function 'setShareLibraryPath'
+- add function for ClassOfSRPParaPackageInterface : 'Copy'
+- released at 2021/05/21 
 
 ### 3.7.6
 - Solve the bug that the number of parameters is sometimes one more when calling native script functions
